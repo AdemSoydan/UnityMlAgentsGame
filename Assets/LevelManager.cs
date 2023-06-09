@@ -25,6 +25,12 @@ public class LevelManager : MonoBehaviour
         character.onCathced();
         StartCoroutine(EnableEndScreen());
     }
+    public void onFailedNoAgent()
+    {
+        MainCharacterController character = GameObject.FindAnyObjectByType<MainCharacterController>();
+        character.onCathced();
+        StartCoroutine(EnableEndScreen());
+    }
     private IEnumerator EnableEndScreen()
     {
         yield return new WaitForSeconds(2.3f);

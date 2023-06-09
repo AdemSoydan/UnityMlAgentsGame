@@ -17,16 +17,16 @@ MonoBehaviour:
   m_properties:
     m_layerMask:
       serializedVersion: 2
-      m_Bits: 0
+      m_Bits: 4294967295
     m_physicsType: 1
     m_rayWidth: 0.02
     m_angularRange: 360
-    m_raysNumber: 40
+    m_raysNumber: 4
     m_minRadialDistance: 0
-    m_maxRadialDistance: 25
+    m_maxRadialDistance: 5
     m_rotate: 1
     m_rotateClockwise: 1
-    m_rotationSpeed: 15
+    m_rotationSpeed: 25
     m_intermittent: 0
     m_intervalTime: 0
     m_initialTimingPhase: 0

@@ -10,6 +10,7 @@ namespace Lightbug.LaserMachine
 public class LaserMachine : MonoBehaviour {
 
         [SerializeField] AgentBase agent;
+        bool isFinished = false;
     struct LaserElement 
     {
         public Transform transform;        
@@ -151,23 +152,35 @@ public class LaserMachine : MonoBehaviour {
                         {
                             element.sparks.transform.position = hitInfo3D.point; //new Vector3(rhit.point.x, rhit.point.y, transform.position.z);
                             element.sparks.transform.rotation = Quaternion.LookRotation( hitInfo3D.normal ) ;
-                            if(agent != null)
-                            {
-                                    Debug.Log("cagrildi");
-                                    LevelManager.Instance.onFailed(agent);
-                                    DestroyImmediate(this.gameObject);
-                            }
+                           
                             
                                
                         }
+                           
+                            if (hitInfo3D.collider.CompareTag("Character"))
+                            {
+                                if (!isFinished)
+                                {
+                                    if (agent != null)
+                                    {
+                                        LevelManager.Instance.onFailed(agent);
+                                        DestroyImmediate(this.gameObject);
+                                    }
+                                    else
+                                    {
+                                        LevelManager.Instance.onFailedNoAgent();
+                                    }
+                                    isFinished = true;
+                                }
+                            }
+                          
+                            /*
+                            EXAMPLE : In this line you can add whatever functionality you want, 
+                            for example, if the hitInfoXD.collider is not null do whatever thing you wanna do to the target object.
+                            DoAction();
+                            */
 
-                        /*
-                        EXAMPLE : In this line you can add whatever functionality you want, 
-                        for example, if the hitInfoXD.collider is not null do whatever thing you wanna do to the target object.
-                        DoAction();
-                        */
-
-                    }
+                        }
                     else
                     {
                         element.lineRenderer.SetPosition(1, element.transform.position + element.transform.forward * m_currentProperties.m_maxRadialDistance);
