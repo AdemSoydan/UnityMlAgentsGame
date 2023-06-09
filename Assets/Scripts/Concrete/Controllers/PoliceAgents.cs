@@ -8,6 +8,7 @@ public class PoliceAgents : AgentBase
 {
     [SerializeField] GameObject[] destinations;
     [SerializeField] Animator animator;
+    [SerializeField] Rigidbody rb;
     private void Awake()
     {
         base.Awake();
@@ -28,7 +29,10 @@ public class PoliceAgents : AgentBase
 
     public override void Attack()
     {
-        throw new System.NotImplementedException();
+        MainCharacterController character = GameObject.FindAnyObjectByType<MainCharacterController>();
+        agent.Stop();
+        transform.LookAt(character.transform.position);
+        animator.SetTrigger("shoot");
     }
 
     public override void GoToDestination(Transform destination)

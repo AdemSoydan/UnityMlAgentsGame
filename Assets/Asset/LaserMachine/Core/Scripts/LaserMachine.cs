@@ -9,6 +9,7 @@ namespace Lightbug.LaserMachine
 
 public class LaserMachine : MonoBehaviour {
 
+        [SerializeField] AgentBase agent;
     struct LaserElement 
     {
         public Transform transform;        
@@ -150,6 +151,14 @@ public class LaserMachine : MonoBehaviour {
                         {
                             element.sparks.transform.position = hitInfo3D.point; //new Vector3(rhit.point.x, rhit.point.y, transform.position.z);
                             element.sparks.transform.rotation = Quaternion.LookRotation( hitInfo3D.normal ) ;
+                            if(agent != null)
+                            {
+                                    Debug.Log("cagrildi");
+                                    LevelManager.Instance.onFailed(agent);
+                                    DestroyImmediate(this.gameObject);
+                            }
+                            
+                               
                         }
 
                         /*
@@ -223,6 +232,7 @@ public class LaserMachine : MonoBehaviour {
         }
         
     }
+     
 
     /*
     EXAMPLE : 

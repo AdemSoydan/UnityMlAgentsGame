@@ -5,11 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - dest
+  - Character
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Character
   - Water
   - UI
   - 

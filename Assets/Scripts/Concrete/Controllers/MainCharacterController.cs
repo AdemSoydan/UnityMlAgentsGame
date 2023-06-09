@@ -9,12 +9,16 @@ public class MainCharacterController : MonoBehaviour
     [SerializeField] private float velocity;
     [SerializeField] private Rigidbody rigidbody;
     [SerializeField] private Animator animatorController;
+    bool isDead = false;
 
    
     private void Update()
     {
-        Debug.Log("Vertical" +joystick.Vertical + "Horizontal" + joystick.Horizontal);
-
+        if (isDead)
+        {
+            rigidbody.velocity = Vector3.zero;
+            return;
+        }
         rigidbody.velocity = new Vector3(-joystick.Vertical * velocity, 0, joystick.Horizontal * velocity);
         Vector3 movement = new Vector3(-joystick.Vertical * velocity, 0.0f, joystick.Horizontal * velocity);
 
@@ -28,4 +32,8 @@ public class MainCharacterController : MonoBehaviour
         }
        
     }
+    public void onCathced() {
+        isDead = true;
+        animatorController.SetTrigger("death");
+    } 
 }
