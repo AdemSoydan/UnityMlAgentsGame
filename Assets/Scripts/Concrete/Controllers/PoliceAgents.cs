@@ -1,17 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
 public class PoliceAgents : AgentBase
 {
-    [SerializeField] GameObject[] destinations;
+    private GameObject[] destinations;
+    [SerializeField] GameObject destinationsParent;
     [SerializeField] Animator animator;
     [SerializeField] Rigidbody rb;
     private void Awake()
     {
         base.Awake();
+        int childCount = destinationsParent.transform.childCount;
+        destinations = new GameObject[childCount];
+        for (int i = 0; i < destinations.Length; i++)
+        {
+            destinations[i] = destinationsParent.transform.GetChild(i).gameObject;
+        }
+        
+    }
+    private void Start()
+    {
         agent.SetDestination(destinations[0].transform.position);
     }
 
@@ -22,7 +34,7 @@ public class PoliceAgents : AgentBase
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag.Equals("dest")) {
+        if (other.tag.Equals("dest") && destinations.Contains(other.gameObject)) {
             agent.SetDestination(changeDestination().position);
         }
     }
