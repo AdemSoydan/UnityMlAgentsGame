@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class DroneAgent : AgentBase
 {
-    [SerializeField] Rigidbody rb;
     private void Awake()
     {
         base.Awake();
@@ -13,7 +12,7 @@ public class DroneAgent : AgentBase
     }
     public override void Attack()
     {
-        return;
+        agent.isStopped = true;
     }
     public override void onChangeDestination()
     {

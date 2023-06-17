@@ -6,6 +6,7 @@ TagManager:
   tags:
   - dest
   - Character
+  - end
   layers:
   - Default
   - TransparentFX

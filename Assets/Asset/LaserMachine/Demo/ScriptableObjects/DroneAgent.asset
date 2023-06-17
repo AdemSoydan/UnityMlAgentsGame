@@ -23,10 +23,10 @@ MonoBehaviour:
     m_angularRange: 360
     m_raysNumber: 15
     m_minRadialDistance: 1
-    m_maxRadialDistance: 2
+    m_maxRadialDistance: 1.3
     m_rotate: 1
     m_rotateClockwise: 1
-    m_rotationSpeed: 10
+    m_rotationSpeed: 30
     m_intermittent: 0
     m_intervalTime: 0
     m_initialTimingPhase: 0

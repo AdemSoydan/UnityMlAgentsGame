@@ -34,5 +34,12 @@ public class MainCharacterController : MonoBehaviour
     public void onCathced() {
         isDead = true;
         animatorController.SetTrigger("death");
-    } 
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("end"))
+        {
+            LevelManager.Instance.onSuccess();
+        }
+    }
 }

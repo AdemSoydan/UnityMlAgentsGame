@@ -9,7 +9,6 @@ public class MenuController : MonoBehaviour
     [SerializeField] GameObject endScreen;
     [SerializeField] Image attackedImage;
 
-   
     public void enableEndScreen()
     {
         endScreen.SetActive(true);
@@ -18,6 +17,6 @@ public class MenuController : MonoBehaviour
     {
         Sequence sequence = DOTween.Sequence();
         sequence.Append(attackedImage.DOFade(.15f, .3f));
-        sequence.SetLoops(5, LoopType.Yoyo);
+        sequence.SetLoops(3, LoopType.Yoyo);
     }
 }

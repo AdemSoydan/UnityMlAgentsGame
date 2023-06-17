@@ -26,6 +26,10 @@ public class LevelManager : MonoBehaviour
         menuController.enableAttackedImage();
         StartCoroutine(EnableEndScreen());
     }
+    public void onSuccess()
+    {
+        menuController.enableEndScreen();
+    }
     public void onFailedNoAgent()
     {
         MainCharacterController character = GameObject.FindAnyObjectByType<MainCharacterController>();
