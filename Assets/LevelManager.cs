@@ -28,7 +28,7 @@ public class LevelManager : MonoBehaviour
     }
     public void onSuccess()
     {
-        menuController.enableEndScreen();
+        menuController.enableMonitorScreen();
     }
     public void onFailedNoAgent()
     {
