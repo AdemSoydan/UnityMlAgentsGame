@@ -10,8 +10,7 @@ public class MainCharacterController : MonoBehaviour
     [SerializeField] private Rigidbody rigidbody;
     [SerializeField] private Animator animatorController;
     bool isDead = false;
-
-   
+ 
     private void Update()
     {
         if (isDead)

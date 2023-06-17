@@ -161,15 +161,8 @@ public class LaserMachine : MonoBehaviour {
                             {
                                 if (!isFinished)
                                 {
-                                    if (agent != null)
-                                    {
-                                        LevelManager.Instance.onFailed(agent);
-                                        DestroyImmediate(this.gameObject);
-                                    }
-                                    else
-                                    {
-                                        LevelManager.Instance.onFailedNoAgent();
-                                    }
+                                    LevelManager.Instance.onFailed(agent);
+                                    DestroyImmediate(this.gameObject);
                                     isFinished = true;
                                 }
                             }

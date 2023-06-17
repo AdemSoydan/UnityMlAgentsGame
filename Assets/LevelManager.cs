@@ -23,6 +23,7 @@ public class LevelManager : MonoBehaviour
         MainCharacterController character = GameObject.FindAnyObjectByType<MainCharacterController>();
         agent.Attack();
         character.onCathced();
+        menuController.enableAttackedImage();
         StartCoroutine(EnableEndScreen());
     }
     public void onFailedNoAgent()
@@ -36,6 +37,5 @@ public class LevelManager : MonoBehaviour
         yield return new WaitForSeconds(2.3f);
         menuController.enableEndScreen();
     }
-
 
 }
